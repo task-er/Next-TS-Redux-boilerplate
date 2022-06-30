@@ -8,8 +8,21 @@
     "start": "next start",
     "lint": "next lint",
     "eslint": "eslint src/**/*.{ts,tsx} --ext .ts,.tsx --fix",
-    "prettier": "prettier --write src/**/*.{ts,tsx}",
-    "stylelint": "npx stylelint src/**/*.{css,scss}"
+    "prettier": "prettier --write src/**/*.{git difts,tsx}",
+    "stylelint": "npx stylelint src/**/*.{css,scss}",
+    "prepare": "husky install",
+    "lint-staged": "lint-staged"
+  },
+  "lint-staged": {
+    "src/**/*.{ts,tsx}": [
+      "eslint --ext .tsx --ext .ts ./src --fix"
+    ],
+    "./src/**": [
+      "prettier --write ."
+    ],
+    "./src/**/*.{css,scss}": [
+      "npx stylelint src/**/*.{css,scss}"
+    ]
   },
   "dependencies": {
     "next": "12.2.0",
@@ -28,14 +41,16 @@
     "eslint-config-airbnb-typescript": "^17.0.0",
     "eslint-config-next": "12.2.0",
     "eslint-config-prettier": "^8.5.0",
+    "eslint-plugin-import": "^2.26.0",
     "eslint-plugin-prettier": "^4.1.0",
     "eslint-plugin-react": "^7.30.1",
-    "eslint-plugin-import": "^2.26.0",
+    "husky": "^8.0.1",
+    "lint-staged": "^13.0.3",
     "prettier": "^2.7.1",
     "stylelint": "^14.9.1",
-    "stylelint-scss": "^4.2.0",
     "stylelint-config-prettier-scss": "^0.0.1",
     "stylelint-config-standard-scss": "^4.0.0",
+    "stylelint-scss": "^4.2.0",
     "typescript": "4.7.4"
   }
 }
